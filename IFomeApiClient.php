@@ -36,14 +36,14 @@ class IFomeApiClient
             $errors .= "Composição é obrigatória.\n";
         }
 
-        if ((!is_numeric($data['quantidade_estoque'])) || $data['quantidade_estoque'] < 0) {
+        if (!ctype_digit($data['quantidade_estoque']) || $data['quantidade_estoque'] < 0) {
             $errors .= "Quantidade em estoque deve ser um número inteiro não negativo.\n";
         }
 
-        if ((!is_numeric($data['valor'])) || $data['valor'] < 0) {
+        if (!ctype_digit($data['valor']) || $data['valor'] < 0) {
             $errors .= "Valor deve ser um número não negativo.\n";
         }
-        
+
         return $errors;
     }
 
@@ -55,11 +55,11 @@ class IFomeApiClient
             $errors .= "Nome é obrigatório e deve ter pelo menos 3 caracteres.\n";
         }
 
-        if ((!is_numeric($data['quantidade_estoque'])) || $data['quantidade_estoque'] < 0) {
+        if ((!ctype_digit($data['quantidade_estoque'])) || $data['quantidade_estoque'] < 0) {
             $errors .= "Quantidade em estoque deve ser um número inteiro não negativo.\n";
         }
 
-        if ((!is_numeric($data['valor'])) || $data['valor'] < 0) {
+        if ((!ctype_digit($data['valor'])) || $data['valor'] < 0) {
             $errors .= "Valor deve ser um número não negativo.\n";
         }
 
@@ -98,7 +98,7 @@ class IFomeApiClient
             'valor' => floatval($this->getUserInput("Valor: ")),
         ];
 
-        $validationErrors = $this->validateBebida($novoAlimento);
+        $validationErrors = $this->validateAlimento($novoAlimento);
 
         if (!empty($validationErrors)) {
             echo "Erros de validação:\n";
