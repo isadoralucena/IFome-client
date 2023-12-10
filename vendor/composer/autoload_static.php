@@ -13,6 +13,10 @@ class ComposerStaticInita4b228030aeeb3026406215ecc94befb
     );
 
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Seld\\CliPrompt\\' => 15,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -27,10 +31,14 @@ class ComposerStaticInita4b228030aeeb3026406215ecc94befb
     );
 
     public static $prefixDirsPsr4 = array (
+        'Seld\\CliPrompt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/seld/cli-prompt/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
