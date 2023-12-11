@@ -89,11 +89,11 @@ class IFomeClient
             $errors .= "Composição é obrigatória.\n";
         }
 
-        if (!is_int($data['quantidade_estoque']) || $data['quantidade_estoque'] < 0) {
+        if (!filter_var($data['quantidade_estoque'], FILTER_VALIDATE_INT) || $data['quantidade_estoque'] < 0) {
             $errors .= "Quantidade em estoque deve ser um número inteiro não negativo.\n";
         }
 
-        if (!is_float($data['valor']) || $data['valor'] < 0) {
+        if (!filter_var($data['valor'], FILTER_VALIDATE_FLOAT) || $data['valor'] < 0) {
             $errors .= "Valor deve ser um número não negativo.\n";
         }
 
@@ -108,11 +108,11 @@ class IFomeClient
             $errors .= "Nome é obrigatório e deve ter pelo menos 3 caracteres.\n";
         }
 
-        if ((!is_int($data['quantidade_estoque'])) || $data['quantidade_estoque'] < 0) {
+        if (!filter_var($data['quantidade_estoque'], FILTER_VALIDATE_INT) || $data['quantidade_estoque'] < 0) {
             $errors .= "Quantidade em estoque deve ser um número inteiro não negativo.\n";
         }
 
-        if ((!is_float($data['valor'])) || $data['valor'] < 0) {
+        if (!filter_var($data['valor'], FILTER_VALIDATE_FLOAT) || $data['valor'] < 0) {
             $errors .= "Valor deve ser um número não negativo.\n";
         }
 
